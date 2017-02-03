@@ -1,0 +1,43 @@
+# sample configuration for delivery-check script
+# copy this file to delivery-check.conf and edit it TO YOUR CONFIGURATION
+
+# CONF_REPO_URL: url, from where the repo will be cloned
+CONF_REPO_URL=git://git.savannah.nongnu.org/simulavr.git
+
+# CONF_REPO_BRANCH: branch in source repo, which will be cloned, normally "master"
+CONF_REPO_BRANCH=master
+
+# CONF_CHECK_PATH: where script should clone repository and build, install and so one,
+#    You have to set absolute paths! 
+CONF_CHECK_PATH=$HOME/delivery-check
+
+# CONF_WITH_PYTHON: configure simulavr build with python to create python module too, set to "n" to disable
+CONF_WITH_PYTHON=y
+
+# CONF_WITH_DOXYGEN: configure simulavr build with doxygen to create doxygen documentation too, set to "y" to
+#    enable
+CONF_WITH_DOXYGEN=n
+
+# CONF_WITH_TCL: configure simulavr build with tcl to create tcl lib too, set to "y" to enable
+CONF_WITH_TCL=n
+
+# CONF_TCL_CONFIG: path to tcl installation, this path has to contain tclConfig script, necessary, if
+#    CONF_WITH_TCL is set!
+CONF_TCL_CONFIG=/usr/lib/tcl8.5
+
+# CONF_WITH_VERILOG: configure simulavr build with verilog to create verilog lib too, set to "y" to enable
+CONF_WITH_VERILOG=n
+
+# CONF_SHOW_COMMIT_MAX: max count for option "-s", default is 20, but values to 999 are allowed
+CONF_SHOW_COMMIT_MAX=20
+
+# CONF_EXTRA_LIBS: only used for building on msys, if libintl or such is needed for linking
+#CONF_EXTRA_LIBS='-L/mingw/lib -lintl'
+
+# CONF_CXXFLAGS: additional CXX flags, if necessary
+#CONF_CXXFLAGS='-pedantic -Wall -Wextra -Wno-unused-parameter -std=c++11 -g -O2'
+
+# CONF_WITH_BROWSER_RESULT: show result of delivery check in available browser as html, set to "n" if not
+#CONF_WITH_BROWSER_RESULT=n
+
+# EOF

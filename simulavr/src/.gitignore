@@ -1,0 +1,21 @@
+# files to ignore by git
+devices.cfg
+kbdgentables
+avr_AT*.cpp
+avr_AT*.h
+
+# files created by configure
+Makefile
+config.h
+config.h.in
+
+# files created by make
+simulavr
+simulavr.exe
+stamp-h1
+.deps
+.libs
+.dirstamp
+*.la
+simulavr_wrap.cxx
+

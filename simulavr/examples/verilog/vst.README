@@ -1,0 +1,28 @@
+The example shows how two cores can be instantiated. 
+Both cores are driven with different clocks.
+
+There is a wire "out" which is connected to pins of both devices.
+
+What the graph shows:
+
+driver_enableX the port is driven by coreX, is representing DDR bit
+logic_levelX represents the setting of PORT bit
+outX represents the resulting signal from above values
+
+Because there are 2 devices driving the "sum" wire, we get the following results:
+
+if both core have the driver disabled and none has pull up enabled, the result is "x"
+
+if only one core has the driver enabled, the wire "sum" is the value of "out" of the driver.
+
+if two cores have the driver enabled and both "out" signals are the same, "sum" is the same as "out".
+if both cores drive the signal but with different level, the result is "x" ( short circuit!)
+
+If the avr reads from the pins ( mirrored in the signals mirrorX ) the read value
+is "1" if the wire is in "1", "z" or "x"! There is no definition of "z" or "x" so we simply
+use "1". A logic "0" is read as "0".
+
+
+
+
+

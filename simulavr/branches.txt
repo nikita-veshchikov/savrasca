@@ -1,0 +1,13 @@
+Branch names in git
+===================
+
+This specifies the naming scheme used for the branch names in the
+simulavr repository.
+
+**master**:
+  Development branch containing the most current version of the
+  development version of simulavr.
+
+**stable**:
+  Branch which hold the sources from former CVS repo for simulavrxx.
+

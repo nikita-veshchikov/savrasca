@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+#  Need to enhance this.. bump the version number, etc.
+#
+#  $Id$
+#
+
+
+./bootstrap
+./configure --prefix=/asdfasdf
+make -j 8 distcheck
+

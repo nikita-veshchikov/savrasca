@@ -1,0 +1,5 @@
+# files to ignore by git
+
+# files created by configure
+conf.py
+

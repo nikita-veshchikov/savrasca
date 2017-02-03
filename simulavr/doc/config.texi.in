@@ -1,0 +1,5 @@
+@c
+@c  $Id$
+@c 
+
+@set VERSION @PACKAGE_VERSION@

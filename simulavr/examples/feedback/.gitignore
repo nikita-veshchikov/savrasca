@@ -1,0 +1,8 @@
+# files to ignore by git
+
+# files created by configure
+simfeedback.tcl
+
+# files created by make
+feedback.elf
+

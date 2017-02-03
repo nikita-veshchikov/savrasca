@@ -1,0 +1,14 @@
+#
+#  $Id$
+#
+
+Author: Knut Schwichtenberg <kschwi@web.de>
+
+Build the example (after configuring and building in the main directory):
+
+  make
+
+Run the example:
+
+  ../../src/simulavr -d atmega128 --file stdiodemo.elf
+

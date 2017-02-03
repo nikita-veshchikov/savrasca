@@ -1,0 +1,279 @@
+2009-05-22	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* feedback/feedback.tcl: Improve comment.
+	* feedback/main.c: Write to UART1.
+	* feedback/uart.c: Fix constant.
+
+2009-05-19	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* feedback/debugio.c, feedback/debugio.h, feedback/defines.h,
+	feedback/feedback.tcl, feedback/main.c, feedback/uart.c: Add use of
+	USART1.
+
+2009-05-18	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* simulavr.tcl.in: Search for shared library in current directory. This
+	allows you to create a simple standalone kit.
+
+2009-05-11	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* feedback/main.c, feedback/simfeedback.tcl.in: Add exit command to ui
+	interpreter. This allows external feedback to shutdown the AVR
+	simulation. This should be useful for automated testing.
+
+2009-05-08	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* Makefile.am: Add example of using ATMega128 timer.
+	* atmega128_timer/.cvsignore, atmega128_timer/Makefile.am,
+	atmega128_timer/README, atmega128_timer/debugio.c,
+	atmega128_timer/debugio.h, atmega128_timer/main.c: New files.
+
+2009-05-07	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* feedback/debugio.c, feedback/main.c, feedback/uart.c,
+	feedback/uart.h: Switch from polled to interrupt driven serial IO. Do
+	some minor clean up.
+
+2009-05-05	Knut Schwichtenberg <kschwi@web.de>
+
+	* anacomp/main.c: Fix comments and clean up.
+
+2009-04-22	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* feedback/simfeedback.tcl.in: Analog values are now mostly multiples
+	of 10.
+
+2009-04-21	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* feedback/feedback.tcl, feedback/main.c, feedback/simfeedback.tcl.in:
+	Now sample ADC0-7 and print them on a single line. Feedback rotates
+	value through them.
+
+2009-04-20	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* simulavr.tcl.in: If feedback filename is "-", then assume the user
+	will be explicitly starting a feedback program.
+	* feedback/README: New file.
+
+2009-04-13	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* feedback/Makefile.am, feedback/feedback.tcl, feedback/main.c,
+	feedback/simfeedback.tcl.in: Improve and add support for changing
+	ADC0 based upon the data seen on UART0.
+	* feedback/adc.c: New file.
+
+2009-04-13	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* simulavr.tcl.in: Whether you are doing an external GUI or system
+	feedback, you do need the simulator's UI module enabled.
+
+2009-04-10	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* feedback/debugio.c, feedback/feedback.tcl, feedback/main.c,
+	feedback/simfeedback.tcl.in, feedback/uart.c: Improve feedback
+	example so it prints no debug output and correctly displays three
+	lines of hello world in the feedback window.
+
+2009-04-10	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* simulavr.tcl.in: Fix algorithm for computation of cpu cycle time.
+
+2009-04-07	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* feedback/feedback.tcl, feedback/main.c, feedback/simfeedback.tcl.in,
+	feedback/uart.c: Clean up so others can review and help.
+
+2009-03-31	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* simulavr.tcl.in, feedback/feedback.tcl, simple_ex1/Makefile.am: Fix
+	typos reported on mailing list.
+
+2009-03-27	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* Makefile.am, simulavr.tcl.in: Add new test to demonstrate how one can
+	externally generate feedback with a program running on the simulator
+	without having a GUI. This is the foundation for system level
+	testing.
+	* feedback/.cvsignore, feedback/Makefile.am, feedback/debugio.c,
+	feedback/debugio.h, feedback/defines.h, feedback/feedback.tcl,
+	feedback/main.c, feedback/simfeedback.tcl.in, feedback/uart.c,
+	feedback/uart.h: New files.
+
+2009-03-26	Michael N. Moran <mike@mnmoran.org>
+
+	Patch 4609
+	* Makefile.am: Add new atmega48 example.
+	* atmega48/Makefile.am, atmega48/Makefile.notauto, atmega48/README,
+	atmega48/anadata1, atmega48/anadata2, atmega48/anadata3,
+	atmega48/atmega48.tcl, atmega48/check.tcl.in, atmega48/main.cpp,
+	atmega48/spidata: New files.
+
+2009-03-26	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* simulavr.tcl.in, spi/Makefile.am, spi/spi.tcl: system clock and cpu
+	instance are now available at CPU extension invocation. spi does not
+	use a gui.
+
+2009-03-26	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* spi/Makefile.am: spi now runs with only a warning about spsr not
+	writable.
+
+2009-03-26	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* spi/Makefile.am: Fix typo that prevented make do from working.
+
+2009-03-26	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* anacomp/Makefile.am, atmel_key/Makefile.am, simple_ex1/Makefile.am,
+	spi/Makefile.am, stdiodemo/Makefile.am: Clean up Makefiles. Add
+	spi.tcl.
+	* spi/spi.tcl: New file.
+
+2009-03-26	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* simulavr.tcl.in, anacomp/Makefile.am, spi/Makefile.am: spi example
+	not working but broken in same way using check.tcl and new Tcl
+	Simulavr framework.
+	* spi/Makefile.notauto: New file.
+
+2009-03-25	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* .cvsignore, gui.tcl.in, anacomp/Makefile.am, anacomp/checkdebug.py,
+	anacomp/main.c, atmel_key/Makefile.am, simple_ex1/Makefile.am,
+	stdiodemo/Makefile.am: Add shared framework simulavr.tcl. Switch some
+	of the tests to providing a support file and using the shared Tcl
+	framework.
+	* simulavr.tcl.in, anacomp/anacomp.tcl, atmel_key/atmel_key.tcl,
+	stdiodemo/stdiodemo.tcl: New files.
+	* anacomp/check.tcl.in, anacomp/checkdebug.gdb,
+	anacomp/checkdebug.tcl.in, atmel_key/Makefile.notauto,
+	atmel_key/checkdebug.gdb, atmel_key/checkdebug.tcl.in,
+	stdiodemo/Makefile.notauto: Removed.
+
+2009-03-23	Michael N. Moran <mike@mnmoran.org>
+
+	* Makefile.am: Add spi example.
+	* spi/.cvsignore, spi/Makefile.am, spi/README, spi/anadata,
+	spi/check.tcl.in, spi/main.cpp, spi/spidata: New files.
+2009-03-16	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* atmel_key/.cvsignore, stdiodemo/.cvsignore: Adding files which were
+	missed when you build in the source tree.
+
+2009-03-16	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* ChangeLog, Makefile.am: Fix buglet where it did not build inside the
+	source tree.
+
+2009-03-16	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* Makefile.am: Fix buglet where it
+
+2009-03-16	Knut Schwichtenberg <kschwi@web.de>
+
+	PR 25875/TestSuite
+	* gui.tcl.in, anacomp/checkdebug.tcl.in, stdiodemo/Makefile.am,
+	stdiodemo/checkdebug.gdb, stdiodemo/checkdebug.tcl.in: stdiodemo did
+	not work. Fix issues in gui.tcl.
+
+2009-03-16	Knut Schwichtenberg <kschwi@web.de>
+
+	PR 25878/Simulation
+	* Makefile.am, gui.tcl.in, atmel_key/Makefile.am,
+	atmel_key/checkdebug.gdb: Get atmel_key example working. Knut did the
+	dirty work. Joel did the autoconf follow up.
+	* kbd.xbm, atmel_key/checkdebug.tcl.in: New files.
+	* atmel_key/debug.gdb, atmel_key/kbd.xbm: Removed.
+
+2009-03-13	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* anacomp/README, anacomp/checkdebug.py, anacomp/main.c,
+	atmel_key/Makefile.notauto, atmel_key/Notes.txt, atmel_key/StdDefs.c,
+	atmel_key/StdDefs.h, atmel_key/kb.c, atmel_key/kb.h,
+	atmel_key/main.c, atmel_key/pindefs.h, atmel_key/scancodes.h,
+	atmel_key/serial.c, atmel_key/serial.h, stdiodemo/Makefile.notauto,
+	stdiodemo/checkdebug.gdb, stdiodemo/checkdebug.tcl.in,
+	stdiodemo/stdiodemo.dox: Add CVS Id and make spacing consistent at
+	the end of the header comment block. In some .h files moved the
+	inclusion protection ifdef to after the header comment block to be
+	consistent with most of the .h files.
+
+2009-03-11	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* anacomp/Makefile.am: make dist appears to put the correct set of
+	files in the tarball.
+
+2009-03-11	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* Makefile.am, atmel_key/.cvsignore, stdiodemo/.cvsignore: Add
+	autotools Makefile.am. Builds but I have no way to ensure either
+	example works. I have left the non-autotools
+	* stdiodemo/Makefile.am: New file.
+
+2009-03-11	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* Makefile.am, atmel_key/.cvsignore: Add autotools Makefile.am. Builds
+	but I have no way to test.
+	* atmel_key/Makefile.am: New file.
+
+2009-03-11	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* anacomp/Makefile.am, simple_ex1/Makefile.am: make dist now produces a
+	tarball which compiles completely.
+
+2009-03-10	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* anacomp/.cvsignore, simple_ex1/.cvsignore: Use /usr/lib/tclConfig.sh
+	if available. Build a static libsim.a which contains the non-Tcl
+	dependent source for the shared library and the simulavr executable.
+	This avoids the simulavr executable being dependent on Tcl at all.
+
+2009-03-09	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* .cvsignore, anacomp/.cvsignore, atmel_key/.cvsignore,
+	simple_ex1/.cvsignore, stdiodemo/.cvsignore: New files.
+
+2009-03-09	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* simple_ex1/fred.c: Clean up. Make this echo the entire string.
+
+2009-03-09	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* anacomp/Makefile.am, simple_ex1/Makefile.am: Add trace to CLEANFILES.
+	* Makefile.in, anacomp/Makefile.in, simple_ex1/Makefile.in: Removed.
+	These files are generated by bootstrap.
+
+2009-03-05	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* Makefile.am: Add configure argument --disable-tcl and attempt to
+	detect if tcl.h is not available. If it is not available, then
+
+2009-03-04	Joel Sherrill <joel.sherrill@oarcorp.com>
+
+	* stdiodemo/README: Move non-autoconf Makefiles to Makefile.notauto so
+	it is VERY clear.
+	* atmel_key/README, stdiodemo/.cvsignore: New files.
+
+2009-03-03	Knut Schwichtenberg <kschwi@web.de>
+
+	* atmel_key/AppNotePCATKeyboardInterface.pdf, atmel_key/Makefile.am,
+	atmel_key/Notes.txt, atmel_key/StdDefs.c, atmel_key/StdDefs.h,
+	atmel_key/checkdebug.gdb, atmel_key/debug.gdb, atmel_key/kb.c,
+	atmel_key/kb.h, atmel_key/kbd.xbm, atmel_key/main.c,
+	atmel_key/pindefs.h, atmel_key/scancodes.h, atmel_key/serial.c,
+	atmel_key/serial.h: New files.
+
+2009-03-03	Knut Schwichtenberg <kschwi@web.de>
+
+	* anacomp/.cvsignore, anacomp/checkdebug.tcl.in: Merge stdiodemo
+	example. Use DDD_WITH_ARGS to avoid invoking ddd when it
+	* ChangeLog, anacomp/checkdebug.gdb, stdiodemo/Makefile.am,
+	stdiodemo/README, stdiodemo/checkdebug.gdb,
+	stdiodemo/checkdebug.tcl.in, stdiodemo/defines.h,
+	stdiodemo/hd44780.c, stdiodemo/hd44780.h, stdiodemo/lcd.c,
+	stdiodemo/lcd.h, stdiodemo/stdiodemo-setup.jpg,
+	stdiodemo/stdiodemo.c, stdiodemo/stdiodemo.dox, stdiodemo/uart.c,
+	stdiodemo/uart.h: New files.
+	* anacomp/checkdebug.gdb.in: Removed.
+

@@ -1,0 +1,109 @@
+#!/bin/sh
+
+# primary tools
+echo "[primary]"
+
+# bash
+echo "bash.text=Shell (@SHELL@)"
+echo "bash.order=2"
+echo -n "bash.value="
+@SHELL@ --version | head -1
+
+# uname
+echo "uname.text=OS"
+echo "uname.order=1"
+echo -n "uname.value="
+uname -srvm
+
+# automake
+echo "automake.text=Automake"
+echo -n "automake.value="
+automake --version | head -1
+
+# autoconf
+echo "autoconf.text=Autoconf"
+echo -n "autoconf.value="
+autoconf --version | head -1
+
+# libtool
+echo -n "libtool.value="
+if test "`uname -s`" = "Darwin" -a -n "`which glibtool 2> /dev/null`" ; then
+  glibtool --version | head -1
+  echo "libtool.text=Glibtool (Darwin)"
+else
+  libtool --version | head -1
+  echo "libtool.text=Libtool"
+fi
+
+# configured tools
+echo "[configured]"
+
+# python command
+echo "python.text=Python"
+echo "python.order=1"
+echo -n "python.value="
+@PYTHON_CMD_USE_TRUE@@PYTHON@ -c 'import sys; print(" ".join(sys.version.split()))'
+@PYTHON_CMD_USE_FALSE@echo "n/a"
+
+# available python modules
+echo "pymod.text=Python modules"
+echo "pymod.order=2"
+PMOD=
+@HAVE_PYMOD_rst2pdf_TRUE@PMOD="$PMOD rstpdf"
+@HAVE_PYMOD_sphinx_TRUE@PMOD="$PMOD sphinx"
+@HAVE_PYMOD_wheel_TRUE@PMOD="$PMOD wheel"
+@HAVE_PYMOD_setuptools_TRUE@PMOD="$PMOD setuptools"
+echo "pymod.value=$PMOD"
+
+# tclsh command
+echo "tclsh.text=Tclsh"
+echo "tclsh.order=3"
+echo -n "tclsh.value="
+@HAVE_TCLSH_TRUE@echo 'puts $tcl_patchLevel; exit' | @TCL_SHELL@
+@HAVE_TCLSH_FALSE@echo "n/a"
+
+# GCC und G++
+echo "gcc.text=GCC"
+echo "gcc.order=6"
+echo -n "gcc.value="
+@CC@ --version | head -1
+
+# swig
+echo "swig.text=SWIG"
+echo -n "swig.value="
+@USE_SWIG_TRUE@@SWIG@ -version | awk '/.+/{print $0}' | head -3 | tr '\n' ' '
+@USE_SWIG_TRUE@echo ""
+@USE_SWIG_FALSE@echo "n/a"
+
+# AVRGCC und AVRG++
+echo "avrgcc.text=AVR-GCC"
+echo "avrgcc.order=8"
+echo -n "avrgcc.value="
+@USE_AVR_CROSS_TRUE@@AVR_GCC@ --version | head -1
+@USE_AVR_CROSS_FALSE@echo "n/a"
+
+# avr-libc
+echo "avrlibc.text=AVR-Libc"
+echo "avrlibc.order=9"
+echo -n "avrlibc.value="
+@USE_AVR_CROSS_TRUE@CHECK="yes"
+@USE_AVR_CROSS_FALSE@CHECK="no"
+if test $CHECK = "yes" ; then
+  P=`mktemp -dt check-versions.XXXXXXXXXXXXX`
+  S=$P/test.c
+  D=$P/test.s
+  cat > $S <<EOD
+#include <avr/version.h>
+char *LIBC_VER = __AVR_LIBC_VERSION_STRING__ ;
+char *LIBC_DATE = __AVR_LIBC_DATE_STRING__ ;
+EOD
+  @AVR_GCC@ -mmcu=atmega16 -E -o $D $S
+  V=`cat $D | grep LIBC_VER | awk '{print $4}' | tr -d '"'`
+  T=`cat $D | grep LIBC_DATE | awk '{print $4}' | tr -d '"'`
+  rm -rf $P
+  echo "$V ($T)"
+else
+  echo "n/a"
+fi
+
+# EOF

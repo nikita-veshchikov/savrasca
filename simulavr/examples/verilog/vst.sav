@@ -1,0 +1,26 @@
+[*]
+[*] GTKWave Analyzer v3.3.65 (w)1999-2015 BSI
+[*] Fri Oct 30 20:43:24 2015
+[*]
+[dumpfile] "/home/krud/linux-avr/m278ex/verilog_simulavr_test_dir/verilog/vst.vcd"
+[dumpfile_mtime] "Fri Oct 30 19:35:52 2015"
+[dumpfile_size] 672023
+[savefile] "/home/krud/linux-avr/m278ex/verilog_simulavr_test_dir/verilog/vst.gtkw"
+[timestart] 0
+[size] 1680 986
+[pos] -1 -1
+*-14.000000 19140 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 218
+[signals_width] 170
+[sst_expanded] 1
+[sst_vpaned_height] 277
+@28
+test.driver_enabled1
+test.logic_level1
+test.out1
+test.driver_enabled2
+test.logic_level2
+test.out2
+test.sum
+[pattern_trace] 1
+[pattern_trace] 0

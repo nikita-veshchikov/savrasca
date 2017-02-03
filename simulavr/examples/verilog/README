@@ -1,0 +1,21 @@
+This directory contains some examples of how one can use
+the VERILOG simulavrxx interface. Just call
+
+> make example
+
+and after that, use 
+
+> make <file>.run
+
+and then
+
+> make <file>.view
+
+with the base name one of the example files (such as baretest.v ->
+make baretest.view), to view the results in gtkwave.
+
+Example:
+
+make example
+make vst.run
+make vst.view

@@ -1,0 +1,80 @@
+README
+------
+
+This are some examples to demonstrate usage of pysimulavr. You can run all
+examples together::
+
+  > make example
+
+example1
+========
+
+It's written as a unittest. You can start it by::
+
+  > make example1
+  
+So you can see, how easy it's to write unittests for simulavr or also for your
+avr code. But you can use pysimulavr also for other things, look at example.py
+how to use pysimulavr.
+
+example2
+========
+
+Shows the usage of Pin and Net. This can be used as starting point to understand
+usage of SetOutState/SetInState methods of Pin class and how it works. You can
+start it by::
+
+  > make example2
+  
+example3
+========
+
+This is a more complex example. It demonstrates, how you can simply watch for
+pin output changes and how you could inject external pin changes to the simulator
+to stimulate your program functionality. You can start it by::
+
+  > make example3
+  
+example4
+========
+
+This example is closed to example3. ex_pinout.c initialise timer2 in CTC mode for
+a period of 2ms on 4MHz clock frequency. Example output shows the toggle of pin
+0 at port A. If you set the variable doVCD to "True" in script ex_pinout.py,
+then a VCD dump will be written, if you run this example. Install gtkwave and
+open this VCD dump file (ex_pinout.vcd) with gtkwave. So you can compare time
+written out by this example with the results shown in gtkwave. The signal
+IRQ.VECTOR9 shows when and how long the ISR was running! You can start it by::
+
+  > make example4
+  
+example5
+========
+
+This example demonstrates using python interface for multicore simulation. We
+simulate 2 ATmega16 cores::
+
+  +----------+             +----------+
+  | Core A   | PB3     PD2 | Core B   |
+  | 4MHz     |------>------| 10MHz    |
+  |          |             |          |
+  +----------+             +----------+
+  
+Core A runs as a 250Hz clock generator on pin B3. B3 from core A is conected with
+pin D2 on core B. Core B counts now all rising edges on pin D2 and measures the
+time distance between 2 events with timer T0.
+
+This example shows:
+
+- how to use python interface
+- how it is possible to run a multicore simulation, in this example also with
+  different clock sources for the cores
+- how to connect pins between cores
+- how to access global variables, how to get address for a global variable and
+  how to read RAM values from a address
+  
+You can start it by::
+
+  > make example5
+  
+*EOF*
