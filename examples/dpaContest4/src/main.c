@@ -39,7 +39,6 @@ void read1(unsigned char* buffer);
 
 int main(void){
 	unsigned char offset[1];
-	unsigned char buffer[128];
 	//unsigned char i;
 	
 	unsigned char key[32] = {
@@ -110,6 +109,8 @@ void readFromInputPort(unsigned char* buffer){
 }
 
 /*
+// DO NOT USE HEX ENCODING
+// for sending and getting the data, it's not an operation that runs in constant time!!!
 void text2hex(unsigned char* buffer, unsigned char* res){
 	unsigned char i = 0, j=0;
 	unsigned char tmp0, tmp1;

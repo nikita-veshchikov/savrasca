@@ -1,8 +1,13 @@
 1) Start by compiling the course code of SAVRASVA (based on SimulAVR)
  - type "./configure" (in simulavr folder)to configure the makefile
  - type "make" to compile the binaries
+ 	
+ Note: use "make" or "make -j N" (if you have N cores on your computer make will use all the N during the compilation)
  
 2) to get an example running
- - use "make" to compile the binary (in "src" folder)
+ - use "make" to compile the binary (in "src" folder of the example that you want to run)
+ 
+ Note: you will need the "avr-gcc" compiler
+ 
  - start "generateTraces.bash" which will create simulated traces in the folder "traces"
  and it wil also create execution traces in the folder "traces_exe"

@@ -1,7 +1,16 @@
 #!/bin/bash
 
-# filename for the simulation
-file="$1"
+# filename of the binary for the simulation
+file=src/dpa4.elf
+if [ ! -f $file ]
+then
+	echo "Binary file is missing!";
+	echo "Trying to compile it in the src folder";
+	cd src/ ;
+	make clean ;
+	make ;
+	cd .. ;
+fi
 
 # remove old file with plaintexts
 if [ -f inputs.csv ]
@@ -10,11 +19,11 @@ then
 fi
 
 # create directories for simulated traces
-if [ ! -f traces ]
+if [ ! -d traces ]
 then
 	mkdir traces
 fi
-if [ ! -f traces_exe ]
+if [ ! -d traces_exe ]
 then
 	mkdir traces_exe
 fi
