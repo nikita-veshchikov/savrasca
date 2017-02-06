@@ -92,6 +92,7 @@ const char *SplitOffsetFile(const char *arg,
 }
 
 const char Usage[] = 
+    "SAVRASCA modification of\n"
     "AVR-Simulator Version " VERSION "\n"
     "-u                    run with user interface for external pin\n"
     "                      handling at port 7777\n"
